@@ -7,7 +7,7 @@ type RepositoryManager interface {
 }
 
 type repositoryManager struct {
-	infraManager infraManager
+	infraManager InfraManager
 }
 
 
@@ -15,6 +15,6 @@ func(r *repositoryManager) CustomerRepo() repository.CustomerRepository {
 	return repository.NewCustomerRepository(r.infraManager.LopeiClientConn())
 }
 
-func NewRepositoryManager(infraManager infraManager) RepositoryManager {
+func NewRepositoryManager(infraManager InfraManager) RepositoryManager {
 	return &repositoryManager{infraManager: infraManager}
 }
